@@ -46,20 +46,23 @@ public class PlayerController : MonoBehaviour
         
         Vector3 targetVelocity = new Vector2(horizontalMovement, _playerRb.velocity.y);
         _playerRb.velocity = Vector3.SmoothDamp(_playerRb.velocity, targetVelocity, ref velocity, 0.05f);
-        
-        //if (player.GetButton("RightMovement"))
-        //{
-        //    _playerRb.MovePosition(transform.position + transform.right * _moveSpeed * Time.fixedDeltaTime);
-        //}
-        //
-        //if (player.GetButton("LeftMovement"))
-        //{
-        //    _playerRb.MovePosition(transform.position + (-transform.right) * _moveSpeed * Time.fixedDeltaTime);
-        //}
-        
+                
         if (player.GetButtonDown("Jump"))
         {
-            _playerRb.AddForce(transform.up * _jumpForce);
+            Jump(_jumpForce);
         }
+    }
+
+    public void Jump(float jump_force)
+    {
+        _playerRb.AddForce(Vector2.up * jump_force);
+    }
+
+    public void JumpWithAngle(float jumpForce, float jumpAngle)
+    {
+        Debug.Log("jump direction");
+        float angleInRadians = jumpAngle * Mathf.PI / 180.0f;
+        Vector2 direction = new Vector2(Mathf.Cos(angleInRadians), Mathf.Sin(angleInRadians));
+        _playerRb.AddForce(direction * jumpForce);
     }
 }
