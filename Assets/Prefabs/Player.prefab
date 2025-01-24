@@ -163,8 +163,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerGo: {fileID: 7245421568472020731}
   _playerRb: {fileID: 1843496830766401205}
-  _jumpForce: 5
-  _moveSpeed: 10
+  _jumpForce: 300
+  _moveSpeed: 4000
   _isAlive: 0
   _isGrounded: 0
   _asDobleJump: 0

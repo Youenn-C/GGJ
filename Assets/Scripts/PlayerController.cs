@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _isAlive;
     [SerializeField] private bool _isGrounded;
     [SerializeField] private bool _asDobleJump;
+    private Vector3 velocity = Vector3.zero;
     
     [Header("Rewired"), Space(5)]
     public Player player;
@@ -41,16 +42,21 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        if (player.GetButton("RightMovement"))
-        {
-            _playerRb.MovePosition(transform.position + transform.right * _moveSpeed * Time.fixedDeltaTime);
-        }
+        float horizontalMovement = player.GetAxis("HorizontalMovement") * _moveSpeed * Time.deltaTime;
         
-        if (player.GetButton("LeftMovement"))
-        {
-            _playerRb.MovePosition(transform.position + (-transform.right) * _moveSpeed * Time.fixedDeltaTime);
-        }
-
+        Vector3 targetVelocity = new Vector2(horizontalMovement, _playerRb.velocity.y);
+        _playerRb.velocity = Vector3.SmoothDamp(_playerRb.velocity, targetVelocity, ref velocity, 0.05f);
+        
+        //if (player.GetButton("RightMovement"))
+        //{
+        //    _playerRb.MovePosition(transform.position + transform.right * _moveSpeed * Time.fixedDeltaTime);
+        //}
+        //
+        //if (player.GetButton("LeftMovement"))
+        //{
+        //    _playerRb.MovePosition(transform.position + (-transform.right) * _moveSpeed * Time.fixedDeltaTime);
+        //}
+        
         if (player.GetButtonDown("Jump"))
         {
             _playerRb.AddForce(transform.up * _jumpForce);
