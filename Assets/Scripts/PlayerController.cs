@@ -6,9 +6,11 @@ using Rewired;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
+    
     [Header("References"), Space(5)]
     [SerializeField] private GameObject _playerGo;
-    [SerializeField] private Rigidbody2D _playerRb;
+    public Rigidbody2D _playerRb;
     
     [Header("Variables"), Space(5)]
     [SerializeField] private int _jumpForce;
@@ -26,15 +28,17 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         player = ReInput.players.GetPlayer(playerId);
+
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         MovePlayer();
@@ -49,20 +53,12 @@ public class PlayerController : MonoBehaviour
                 
         if (player.GetButtonDown("Jump"))
         {
-            Jump(_jumpForce);
+            Jump();
         }
     }
 
-    public void Jump(float jump_force)
+    public void Jump()
     {
-        _playerRb.AddForce(Vector2.up * jump_force);
-    }
-
-    public void JumpWithAngle(float jumpForce, float jumpAngle)
-    {
-        Debug.Log("jump direction");
-        float angleInRadians = jumpAngle * Mathf.PI / 180.0f;
-        Vector2 direction = new Vector2(Mathf.Cos(angleInRadians), Mathf.Sin(angleInRadians));
-        _playerRb.AddForce(direction * jumpForce);
+        _playerRb.AddForce(transform.up * _jumpForce);
     }
 }

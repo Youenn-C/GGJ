@@ -8,19 +8,7 @@ public class SimpleBubble : MonoBehaviour
     [SerializeField] private PlayerController _player;
 
     [Header("Variables"), Space(5)]
-    [SerializeField] private float _jumpForce = 500;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private float _propultionForce = 500;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -28,7 +16,12 @@ public class SimpleBubble : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             Debug.Log("Player collision");
-            _player.Jump(_jumpForce);
+            Propulsion();
         }
+    }
+    
+    public void Propulsion()
+    {
+        PlayerController.Instance._playerRb.AddForce(transform.up * _propultionForce);
     }
 }
