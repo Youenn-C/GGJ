@@ -21,4 +21,14 @@ public class PlayerSpawn : MonoBehaviour
     {
         _playerPrefab.transform.position = _spawnPoint.transform.position;
     }
+
+    void Update()
+    {
+        if (!PlayerController.Instance.IsAlive())
+        {
+            Debug.Log("Player respawn");
+            PlayerController.Instance.Respawn();
+            PlacePlayerOnSpawnPoint();
+        }
+    }
 }

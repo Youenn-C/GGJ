@@ -7,11 +7,11 @@ using Rewired;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
-    
+
     [Header("References"), Space(5)]
     [SerializeField] private GameObject _playerGo;
     public Rigidbody2D _playerRb;
-    
+
     [Header("Variables"), Space(5)]
     [SerializeField] private int _jumpForce;
     [SerializeField] private int _moveSpeed;
@@ -25,6 +25,11 @@ public class PlayerController : MonoBehaviour
     [Header("Rewired"), Space(5)]
     public Player player;
     [SerializeField] private int playerId = 0;
+
+    public bool IsAlive()
+    {
+        return _isAlive;
+    }
 
     void Awake()
     {
@@ -72,6 +77,18 @@ public class PlayerController : MonoBehaviour
         Debug.Log(direction * jumpForce);
         _playerRb.AddForce(direction * jumpForce);
         _isGrounded = false;
+    }
+
+    public void Die()
+    {
+        Debug.Log("Player died");
+        // TODO: run dead animation
+        _isAlive = false;
+    }
+
+    public void Respawn()
+    {
+        _isAlive = true;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
