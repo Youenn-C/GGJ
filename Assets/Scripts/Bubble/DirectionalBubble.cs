@@ -80,7 +80,6 @@ public class DirectionalBubble : MonoBehaviour
         yield return null;
 
     }
-    }
 
     void JumpWithAngle(float propulsionForce, float jumpAngle)
     {
