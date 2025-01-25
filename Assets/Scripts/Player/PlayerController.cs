@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _asDobleJump;
     private Vector3 velocity = Vector3.zero;
     
+    public bool canMove = true;
+    
     [Header("Rewired"), Space(5)]
     public Player player;
     [SerializeField] private int playerId = 0;
@@ -47,14 +49,17 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        float horizontalMovement = player.GetAxis("HorizontalMovement") * _moveSpeed * Time.deltaTime;
-        
-        Vector3 targetVelocity = new Vector2(horizontalMovement, _playerRb.velocity.y);
-        _playerRb.velocity = Vector3.SmoothDamp(_playerRb.velocity, targetVelocity, ref velocity, 0.05f);
-                
-        if (player.GetButtonDown("Jump") && _isGrounded)
+        if (canMove)
         {
-            Jump(_jumpForce);
+            float horizontalMovement = player.GetAxis("HorizontalMovement") * _moveSpeed * Time.deltaTime;
+        
+            Vector3 targetVelocity = new Vector2(horizontalMovement, _playerRb.velocity.y);
+            _playerRb.velocity = Vector3.SmoothDamp(_playerRb.velocity, targetVelocity, ref velocity, 0.05f);
+                
+            if (player.GetButtonDown("Jump") && _isGrounded)
+            {
+                Jump(_jumpForce);
+            }
         }
     }
 
