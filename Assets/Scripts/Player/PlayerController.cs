@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [Space(5)]
     [SerializeField] private bool _isAlive;
     [SerializeField] private bool _isGrounded;
+    [SerializeField] private string[] _isGroundedTags;
     [SerializeField] private bool _asDobleJump;
     private Vector3 velocity = Vector3.zero;
     
@@ -51,7 +52,7 @@ public class PlayerController : MonoBehaviour
         Vector3 targetVelocity = new Vector2(horizontalMovement, _playerRb.velocity.y);
         _playerRb.velocity = Vector3.SmoothDamp(_playerRb.velocity, targetVelocity, ref velocity, 0.05f);
                 
-        if (player.GetButtonDown("Jump"))
+        if (player.GetButtonDown("Jump") && _isGrounded)
         {
             Jump();
         }
@@ -60,5 +61,17 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         _playerRb.AddForce(transform.up * _jumpForce);
+        _isGrounded = false;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        foreach (var tag in _isGroundedTags)
+        {
+            if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Bubbles"))
+            {
+                _isGrounded = true;
+            }
+        }
     }
 }

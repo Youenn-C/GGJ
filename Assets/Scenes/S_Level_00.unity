@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 1048905486}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1788,6 +1788,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2038759761755869981, guid: 0352e4c75738bec40b0b068548326582, type: 3}
+      propertyPath: _isGroundedTags.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038759761755869981, guid: 0352e4c75738bec40b0b068548326582, type: 3}
+      propertyPath: _isGroundedTags.Array.data[0]
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038759761755869981, guid: 0352e4c75738bec40b0b068548326582, type: 3}
+      propertyPath: _isGroundedTags.Array.data[1]
+      value: Bubbles
+      objectReference: {fileID: 0}
     - target: {fileID: 3101853147862276431, guid: 0352e4c75738bec40b0b068548326582, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1831,6 +1843,22 @@ PrefabInstance:
     - target: {fileID: 4419690205981008458, guid: 0352e4c75738bec40b0b068548326582, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053091876843286996, guid: 0352e4c75738bec40b0b068548326582, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053091876843286996, guid: 0352e4c75738bec40b0b068548326582, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053091876843286996, guid: 0352e4c75738bec40b0b068548326582, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053091876843286996, guid: 0352e4c75738bec40b0b068548326582, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

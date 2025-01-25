@@ -6,6 +6,8 @@ TagManager:
   tags:
   - GameManager
   - UiIteraction
+  - Ground
+  - Bubbles
   layers:
   - Default
   - TransparentFX
