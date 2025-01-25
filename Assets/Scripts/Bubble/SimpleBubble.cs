@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SimpleBubble : MonoBehaviour
 {
-    [Header("References"), Space(5)]
-    [SerializeField] private PlayerController _player;
+    //[Header("References"), Space(5)]
 
     [Header("Variables"), Space(5)]
     [SerializeField] private float _propultionForce = 500;
@@ -22,6 +21,7 @@ public class SimpleBubble : MonoBehaviour
     
     public void Propulsion()
     {
-        PlayerController.Instance._playerRb.AddForce(transform.up * _propultionForce);
+        //PlayerController.Instance._playerRb.AddForce(transform.up * _propultionForce);
+        PlayerController.Instance.Jump(_propultionForce);
     }
 }
