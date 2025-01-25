@@ -386,6 +386,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimpleBubble1
       objectReference: {fileID: 0}
+    - target: {fileID: 2143858969501577059, guid: 4d4e29c6521d125419a22bc1eedd9e45, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3176785324368817495, guid: 4d4e29c6521d125419a22bc1eedd9e45, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.16

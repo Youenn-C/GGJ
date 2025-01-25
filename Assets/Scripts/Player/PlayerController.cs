@@ -60,7 +60,8 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(float jumpForce)
     {
-        _playerRb.AddForce(transform.up * _jumpForce);
+        Debug.Log(transform.up * jumpForce);
+        _playerRb.AddForce(transform.up * jumpForce);
         _isGrounded = false;
     }
 
