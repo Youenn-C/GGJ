@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     {
         foreach (var tag in _isGroundedTags)
         {
-            if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Bubbles"))
+            if (collision.gameObject.CompareTag("Ground"))
             {
                 _isGrounded = true;
             }

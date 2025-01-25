@@ -1790,7 +1790,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2038759761755869981, guid: 0352e4c75738bec40b0b068548326582, type: 3}
       propertyPath: _isGroundedTags.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2038759761755869981, guid: 0352e4c75738bec40b0b068548326582, type: 3}
       propertyPath: _isGroundedTags.Array.data[0]
