@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [Header("References"), Space(5)]
     [SerializeField] private GameObject _playerGo;
     public Rigidbody2D _playerRb;
+    [SerializeField] private Animator _animator;
 
     [Header("Variables"), Space(5)]
     [SerializeField] private int _jumpForce;
@@ -53,7 +54,9 @@ public class PlayerController : MonoBehaviour
     void MovePlayer()
     {
         float horizontalMovement = player.GetAxis("HorizontalMovement") * _moveSpeed * Time.deltaTime;
-        
+
+        _animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
+
         Vector3 targetVelocity = new Vector2(horizontalMovement, _playerRb.velocity.y);
         _playerRb.velocity = Vector3.SmoothDamp(_playerRb.velocity, targetVelocity, ref velocity, 0.05f);
                 
@@ -65,9 +68,12 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(float jumpForce)
     {
+        _animator.SetTrigger("IsJumping");
         Debug.Log(transform.up * jumpForce);
+        
         _playerRb.AddForce(transform.up * jumpForce);
         _isGrounded = false;
+        
     }
 
     public void JumpWithAngle(float jumpForce, float jumpAngle)
@@ -84,11 +90,13 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Player died");
         // TODO: run dead animation
         _isAlive = false;
+        _animator.SetBool("IsAlive", false);
     }
 
     public void Respawn()
     {
         _isAlive = true;
+        _animator.SetBool("IsAlive", true);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -98,6 +106,7 @@ public class PlayerController : MonoBehaviour
             if (collision.gameObject.CompareTag("Ground"))
             {
                 _isGrounded = true;
+                _animator.SetBool("IsFalling", true);
             }
         }
     }
