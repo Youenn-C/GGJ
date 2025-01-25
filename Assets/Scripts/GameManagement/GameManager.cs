@@ -54,6 +54,9 @@ public class GameManager : MonoBehaviour
             case "Test":
                 SceneManager.LoadScene("S_Test_Mechaniques");
                 break;
+            case "Level_Kitchen":
+                SceneManager.LoadScene("S_Level_Kitchen");
+                break;
         }
     }
 

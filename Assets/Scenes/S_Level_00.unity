@@ -1844,21 +1844,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9053091876843286996, guid: 0352e4c75738bec40b0b068548326582, type: 3}
-      propertyPath: m_Color.b
-      value: 0
+    - target: {fileID: 5382059859229776533, guid: 0352e4c75738bec40b0b068548326582, type: 3}
+      propertyPath: m_Mass
+      value: 0.55
       objectReference: {fileID: 0}
-    - target: {fileID: 9053091876843286996, guid: 0352e4c75738bec40b0b068548326582, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053091876843286996, guid: 0352e4c75738bec40b0b068548326582, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053091876843286996, guid: 0352e4c75738bec40b0b068548326582, type: 3}
-      propertyPath: m_SortingOrder
-      value: 100
+    - target: {fileID: 5382059859229776533, guid: 0352e4c75738bec40b0b068548326582, type: 3}
+      propertyPath: m_GravityScale
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

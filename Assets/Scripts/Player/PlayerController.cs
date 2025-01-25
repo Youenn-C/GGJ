@@ -54,13 +54,22 @@ public class PlayerController : MonoBehaviour
                 
         if (player.GetButtonDown("Jump") && _isGrounded)
         {
-            Jump();
+            Jump(_jumpForce);
         }
     }
 
-    public void Jump()
+    public void Jump(float jumpForce)
     {
         _playerRb.AddForce(transform.up * _jumpForce);
+        _isGrounded = false;
+    }
+
+    public void JumpWithAngle(float jumpForce, float jumpAngle)
+    {
+        float angleInRadians = jumpAngle * Mathf.PI / 180.0f;
+        Vector2 direction = new Vector2(Mathf.Cos(angleInRadians), Mathf.Sin(angleInRadians));
+        Debug.Log(direction * jumpForce);
+        _playerRb.AddForce(direction * jumpForce);
         _isGrounded = false;
     }
 
