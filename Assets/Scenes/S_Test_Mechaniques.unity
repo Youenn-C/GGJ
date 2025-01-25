@@ -1388,8 +1388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaced1efd2b0e204f96891d7e1f2dd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 864658565}
-  _propultionForce: 500
+  _propulsionForce: 0
   _jumpAngle: -45
 --- !u!61 &2031925193
 BoxCollider2D:
