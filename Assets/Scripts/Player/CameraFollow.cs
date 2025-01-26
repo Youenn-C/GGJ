@@ -1,12 +1,17 @@
 using UnityEngine;
 
-public class cameraFollow : MonoBehaviour
+public class CameraFollow : MonoBehaviour
 {
     public GameObject player;
     public float timeOffset;
     public Vector3 posOffset;
 
     private Vector3 velocity;
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     void Update()
     {

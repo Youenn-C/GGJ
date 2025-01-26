@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class DirectionalBubble : MonoBehaviour
 {
     [Header("References"), Space(5)]
+    [SerializeField] private SpriteRenderer _bubbleSpriteRenderer;
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private Transform _bubbleTransform;
     [SerializeField] private Collider2D _bubbleCollider;
@@ -129,10 +130,20 @@ public class DirectionalBubble : MonoBehaviour
         PlayerController.Instance.canMove = true;
         _playerIsInBubble = false;
         _player = null;
+
+        _bubbleCollider.enabled = false;
+        _bubbleSpriteRenderer.enabled = false;
+
         MovePlayerToDontDestroyOnLoad();
-        yield return new WaitForSeconds(2f);
+
+        yield return new WaitForSeconds(0.5f);
+
         _bubbleTransform.position = _initialPosition;
 
-        yield return null;
+        yield return new WaitForSeconds(0.2f);
+
+        _bubbleCollider.enabled = true;
+        _bubbleSpriteRenderer.enabled = true;
+        _isAtLastWaypoint = false;
     }
 }

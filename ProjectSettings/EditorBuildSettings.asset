@@ -9,20 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/S_Level_00.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/S_Level_01.unity
+    path: Assets/Scenes/S_Hub.unity
     guid: 4ea2f167695540042a7d38b0eb8d04a1
-  - enabled: 1
-    path: Assets/Scenes/S_Level_02.unity
-    guid: 18d82c16b7ffd00459ecbb0bbe7b2214
-  - enabled: 1
-    path: Assets/Scenes/S_Level_03.unity
-    guid: 94a22a49219f88c40a116cb649013acf
-  - enabled: 1
-    path: Assets/Scenes/S_Level_04.unity
-    guid: 5aa389162d50f28469a8cdb2a59b9df8
-  - enabled: 1
-    path: Assets/Scenes/S_Test_Mechaniques.unity
-    guid: 212c8a4d0ca80504d804c467c8215535
   - enabled: 1
     path: Assets/Scenes/S_Level_Kitchen.unity
     guid: 1828e6934e0490f4faca5afa8c5ff417
